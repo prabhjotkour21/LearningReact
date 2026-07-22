@@ -1,11 +1,15 @@
 
-
+import User from "./user.jsx"
 function App() {
   
 
   return (
-   <h1>Hello World | Jot kour |  Today am learning React with vite  in this class  hitesh sir explain very well why we select vite insted of core react </h1>
-  )
+
+    <>
+    <h1>Hello world</h1>
+   <User/>  
+    </>
+)
 }
 
 export default App

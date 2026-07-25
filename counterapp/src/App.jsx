@@ -22,14 +22,29 @@ function App() {
     }
     // console.log("Value removed", counter)
   }
+  const resetValue = () => {
+    if (counter === 0) {
+      return
+    }else {
+      setCounter(0)
+
+    }
+  }
 
   return (
     <>
       <h1>Counter App</h1>
-      <h3>Value: { counter}</h3>
-      <button onClick={addvalue}>Incress Value </button>
-      <br/>
-      <button onClick={removevalue} >Decress Value </button>
+      <h3>Value: {counter}</h3>
+      {/* <p>{counter% 2==0 ? <h4>Even Number</h4> : <h4>Odd Number</h4>}</p> */}
+
+      <p>{counter % 2 === 0 ? "Even Number" : "Odd Number"}</p>
+      <h3>{counter <= 5 ? "Beginner" : counter<=10 ? "Learner" : counter<=15 ?"Intermediate" :  counter<=20 ?"Expert" :""}
+      </h3>
+      <button onClick={addvalue} disabled={counter===20}>Incress Value </button>
+      <br />
+      
+      <button onClick={removevalue} disabled={counter === 0}>Decress Value </button>
+      <button onClick={resetValue}>Reset</button>
     </>
   )
 }

@@ -7,9 +7,9 @@ import Quizapp from "./Quizapp.jsx"
 import Agechecker from "./Agecheacker.jsx"
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
+    <App />
     {/* <Scoreboard /> */}
     {/* <Quizapp /> */}
-    <Agechecker/>
+    {/* <Agechecker/> */}
   </StrictMode>,
 )

@@ -2,6 +2,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 
 import App from './App.jsx'
+import Example from "./example.jsx"
 
 function MyApp() {
   return (
@@ -54,7 +55,8 @@ createRoot(document.getElementById('root')).render(
     // {/* <MyApp /> */}
   // MyApp()  ase bhi likh skte h kyu ki ye ek function hi to h
   // anotherReactElement
-  ReactElement
+  // ReactElement
+  <Example/>
 
   // <App/>
   

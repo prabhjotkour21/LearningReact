@@ -3,6 +3,7 @@ import './App.css'
 import UserContextProvider from './context/UserContextProvider'
 import Login from './components/Login'
 import Profile from './components/Profile'
+import Status from "./components/Status"
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
     <UserContextProvider>
       <h1>React Context API Learning</h1> 
       <Login />
-      <Profile/>
+      <Profile />
+      <Status/>
     </UserContextProvider>
   )
 }

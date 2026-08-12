@@ -71,6 +71,7 @@ function App() {
           </button>
           <label>
             <select
+               className="w-full border border-gray-300 rounded-lg p-3 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 value={filterCategory}
                 onChange={(e) => setFilterCategory(e.target.value)}
               >
@@ -100,7 +101,7 @@ function App() {
               </div>
             ))}
             <h2
-              className='text-xl font-bold  mb-6'
+               className="mt-6 mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg text-xl font-bold text-blue-700"
             > Total Expense : ₹ {filteredExpenses.reduce((total, item) => total + Number(item.amount), 0)} </h2>
              
           </div>

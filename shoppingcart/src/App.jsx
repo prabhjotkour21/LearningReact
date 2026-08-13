@@ -4,7 +4,6 @@ import "./App.css";
 
 function App() {
   const [cart, setCart] = useState([]);
-
   const product = [
     { id: 1, name: "Apple", price: 50 },
     { id: 2, name: "Mango", price: 80 },
@@ -17,6 +16,7 @@ function App() {
       id: item.id,
       name: item.name,
       price: item.price,
+      quantity:1
     };
 
     setCart((prev) => [...prev, newcart]);
@@ -25,6 +25,12 @@ function App() {
   const clearCartBtn = () => {
     setCart([]);
   };
+  const increment = (id) => {
+    setCart((prev)=>prev.map((i)=>i.id===id ?{...i,quantity:i.quantity+1}:i))
+  }
+  const decremnet = (id) => {
+    setCart((prev) => prev.map((i) => i.id === id && i.quantity > 1 ? { ...i, quantity : i.quantity-1}:i))
+  }
   
   const deleteItem = (id) => {
     // console.log("id",id);
@@ -107,9 +113,18 @@ function App() {
                   <span className="text-zinc-300">
                     ₹{i.price}
                   </span>
+                 
+                  <button
+                    className="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700 text-white text-lg font-bold hover:bg-zinc-700 active:scale-90 transition"
+                    onClick={() => increment(i.id)}
+                  >+</button>
+                   <span className="w-8 text-center text-white font-semibold">{ i.quantity}</span>
+                  <button
+                    className="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700 text-white text-lg font-bold hover:bg-zinc-700 active:scale-90 transition"
+                    onClick={() => decremnet(i.id)}>-</button> 
                   <button
                      onClick={()=>deleteItem(i.id)}
-                    className="px-4 py-2 rounded-lg bg-white text-black font-medium hover:bg-zinc-200 transition disabled:bg-green-500 disabled:text-white disabled:cursor-not-allowed"
+                    className="px-4 py-2 rounded-lg border border-red-500/40 bg-red-500/10 text-red-400 font-medium hover:bg-red-500 hover:text-white transition duration-200"
                   >Delete
                   </button>
                 </li>
@@ -125,7 +140,7 @@ function App() {
 
             <h3 className="text-2xl font-bold">
               ₹{cart.reduce(
-                (total, item) => total + Number(item.price),
+                (total, item) => total + Number(item.price)* item.quantity,
                 0
               )}
             </h3>

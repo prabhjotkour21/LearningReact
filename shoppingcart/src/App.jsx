@@ -29,7 +29,7 @@ function App() {
     setCart((prev)=>prev.map((i)=>i.id===id ?{...i,quantity:i.quantity+1}:i))
   }
   const decremnet = (id) => {
-    setCart((prev) => prev.map((i) => i.id === id && i.quantity > 1 ? { ...i, quantity : i.quantity-1}:i))
+    setCart((prev) => prev.map((i) => i.id === id  ? { ...i, quantity : i.quantity-1}:i).filter((i)=>i.quantity>0))
   }
   
   const deleteItem = (id) => {

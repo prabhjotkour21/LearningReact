@@ -1,0 +1,16 @@
+@import "tailwindcss";
+nav {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+nav a.active {
+  color: blue;
+  font-weight: bold;
+}
